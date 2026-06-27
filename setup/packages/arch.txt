@@ -1,0 +1,39 @@
+# Arch Linux additions (on top of common.txt). Installed unconditionally via
+# pacman. Arch packages everything in repos, including the full Hyprland stack
+# and Nerd Fonts, so there are no manual font/Hyprland steps for Arch.
+#
+# Name quirks vs other distros: fd (not fd-find), greetd-tuigreet (single pkg),
+# python-pip, openssh (not openssh-server). starship + chezmoi are in repos.
+# VM-only packages (spice-vdagent) are appended conditionally in linux.sh.
+
+# Core tooling
+chezmoi
+fd
+greetd-tuigreet
+k9s
+lazydocker
+lazygit
+python
+python-pip
+gnupg
+openssh
+npm
+starship
+
+# Hyprland desktop stack + fonts (all in Arch repos)
+hyprland
+hyprpaper
+hyprlock
+hypridle
+hyprshutdown
+xdg-desktop-portal-hyprland
+polkit
+networkmanager
+noto-fonts
+ttf-jetbrains-mono-nerd
+mesa
+ttf-meslo-nerd
+ttf-nerd-fonts-symbols
+xdg-utils
+uwsm
+mesa-utils

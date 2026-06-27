@@ -1,0 +1,39 @@
+# Base package list installed on every supported Linux distro (Arch/Debian/Fedora).
+# One package per line; '#' starts a comment; blank lines ignored.
+# Distro-specific additions live in arch.txt / debian.txt / fedora.txt.
+# Names here must be valid on ALL three distros — distro-only name quirks
+# (e.g. fd vs fd-find) belong in the per-distro manifests.
+#
+# starship is intentionally NOT here: only Arch packages it in repos; Debian
+# adds it via apt (debian.txt) and Fedora gets it via a release-binary install.
+
+bat
+btop
+curl
+dunst
+eza
+fastfetch
+flatpak
+foot
+fzf
+git
+grim
+jq
+kitty
+make
+neovim
+podman
+podman-compose
+ripgrep
+slurp
+thunar
+tmux
+unzip
+waybar
+wget
+wl-clipboard
+wofi
+zoxide
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting

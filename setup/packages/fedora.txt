@@ -1,0 +1,19 @@
+# Fedora additions (on top of common.txt). Installed via dnf.
+#
+# Name quirks vs Arch: fd-find, nodejs24-npm (not npm), python + python-pip,
+# egl-utils / mesa-dr-drivers for GL. chezmoi + tuigreet are in Fedora repos;
+# starship is NOT (installed via the release-binary step in linux.sh).
+#
+# The Hyprland stack is NOT here: it is conditional (Fedora >= 43 only) and
+# pulled from the lionheartp/Hyprland COPR in linux.sh. VM-only packages
+# (spice-vdagent) are appended conditionally.
+
+chezmoi
+egl-utils
+fd-find
+greetd
+mesa-dr-drivers
+nodejs24-npm
+python
+python-pip
+tuigreet

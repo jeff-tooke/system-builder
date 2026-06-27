@@ -1,0 +1,23 @@
+# Debian additions (on top of common.txt). Installed via apt-get.
+#
+# Name quirks vs Arch: fd-find (binary is `batcat`/`fdfind` — bat/fd symlinks
+# handled in post-install), python3 + python3-pip, npm (separate pkg).
+# starship + tuigreet are in Debian repos; chezmoi is NOT (installed via the
+# release-binary step to ~/.local/bin in linux.sh).
+#
+# openssh-server is here (not a prereq) so remote access exists after first
+# reboot — useful when the tuigreet screen misbehaves and SSH is the only way
+# in to read logs.
+#
+# The Hyprland stack is NOT here: it comes from trixie-backports via a separate
+# `apt -t trixie-backports` install in linux.sh. VM-only packages
+# (mesa-utils / libgl1-mesa-dri / spice-vdagent) are appended conditionally.
+
+fd-find
+greetd
+npm
+openssh-server
+python3
+python3-pip
+starship
+tuigreet
