@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ============================================================================
 # Linux provisioning module — sourced by ../../setup.sh. Not run directly.
 # Handles Arch, Debian and Fedora. (NixOS is handled by nixos.sh; macOS by

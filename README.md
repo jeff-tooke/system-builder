@@ -1,10 +1,11 @@
 # system-builder
 
-Cross-platform machine provisioning for macOS, Arch, Debian and Fedora.
+Cross-platform machine provisioning for macOS, Arch, Debian, Fedora and NixOS.
 
 This repo handles **system setup** — installing packages, system settings
-(nix-darwin on macOS), desktop session plumbing (greetd/Hyprland on Linux),
-release-binary CLIs, fonts and wallpapers. It then hands off to
+(nix-darwin on macOS, a NixOS flake on NixOS), desktop session plumbing
+(greetd/Hyprland on Linux), release-binary CLIs, fonts and wallpapers. It then
+hands off to
 [chezmoi](https://chezmoi.io) to lay down the **dotfiles**, which live in a
 separate repo: [`jeff-tooke/dotfiles`](https://github.com/jeff-tooke/dotfiles).
 
@@ -35,6 +36,19 @@ bare-metal installs may work but are unverified.
 | Fedora      | 44                   | arm64            | Virtual Machine |
 | Debian      | 13 (Trixie)          | arm64            | Virtual Machine |
 | macOS       | Tahoe (26)           | Apple Silicon    | Virtual Machine |
+| NixOS       | 26.05 + Hyprland     | arm64            | Virtual Machine |
+
+## NixOS
+
+NixOS is provisioned **declaratively** via a flake at `setup/system-settings/`
+(`nixosConfigurations`, sharing the flake with the macOS nix-darwin config). The
+flake owns the *system* layer — packages, the greetd/Hyprland desktop, fonts —
+and chezmoi still owns the dotfiles (no home-manager), mirroring the macOS model.
+
+Install base NixOS from the ISO (this creates your user and
+`/etc/nixos/hardware-configuration.nix`), then run `setup.sh` as on every other
+distro — it stages the machine's hardware config into the flake and runs
+`nixos-rebuild switch --flake`. See `linux/README.md` for the step-by-step.
 
 ## Layout
 
@@ -44,9 +58,9 @@ setup/lib/common.sh               shared helpers (logging, sudo, chezmoi, releas
 setup/os/{macos,linux,nixos}.sh   per-OS provisioning modules
 setup/packages/*.txt              per-distro package manifests (Linux)
 setup/package-management/Brewfile macOS packages
-setup/system-settings/            nix-darwin flake (macOS system settings)
+setup/system-settings/            Nix flake: nix-darwin (macOS) + NixOS system settings
+setup/system-settings/modules/    per-OS flake modules (darwin/, nixos/)
 wallpaper/                        wallpapers copied to ~/.local/share/wallpaper (Linux) / ~/Pictures/wallpaper (macOS)
-linux/nixos/                      NixOS configuration.nix reference
 ```
 
 ## chezmoi source modes
