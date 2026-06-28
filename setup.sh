@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ============================================================================
 # Cross-platform provisioning entry point.
 # ----------------------------------------------------------------------------
@@ -6,7 +6,7 @@
 # to the matching module under setup/os/:
 #
 #   macOS  -> setup/os/macos.sh
-#   NixOS  -> setup/os/nixos.sh   (placeholder; managed via configuration.nix)
+#   NixOS  -> setup/os/nixos.sh   (declarative; nixos-rebuild --flake + chezmoi)
 #   Linux  -> setup/os/linux.sh   (Arch / Debian / Fedora)
 #
 # Shared helpers live in setup/lib/common.sh; per-distro package lists in

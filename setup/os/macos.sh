@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ============================================================================
 # macOS provisioning module — sourced by ../../setup.sh. Not run directly.
 #

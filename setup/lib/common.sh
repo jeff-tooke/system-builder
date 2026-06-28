@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ============================================================================
 # Shared provisioning helpers — sourced by setup.sh and every setup/os/*.sh
 # module. Not meant to be run directly. Expects LOG_FILE to be set by the
